@@ -1,11 +1,7 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    .error {
-        color: red;
-    }
-  </style>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.17.0"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
@@ -18,18 +14,10 @@
   <script>
     (function(vegaEmbed) {
       var embedOpt = {"mode": "vega-lite"};
-      var spec = "https://raw.githubusercontent.com/jamadeo/visited-states/main/states.vg.json";
-      function showError(el, error){
-          el.innerHTML = ('<div class="error" style="color:red;">'
-                          + '<p>JavaScript Error: ' + error.message + '</p>'
-                          + "<p>This usually means there's a typo in your chart specification. "
-                          + "See the javascript console for the full traceback.</p>"
-                          + '</div>');
-          throw error;
-      }
+var spec = "https://raw.githubusercontent.com/jamadeo/visited-states/main/states.vg.json";
+
       const el = document.getElementById('vis');
-      vegaEmbed("#vis", spec, embedOpt)
-        .catch(error => showError(el, error));
+      vegaEmbed("#vis", spec, embedOpt).catch(error => console.error(error));
     })(vegaEmbed);
 
   </script>
